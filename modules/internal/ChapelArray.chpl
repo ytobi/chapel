@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2017 Cray Inc.
+ * Copyright 2004-2018 Cray Inc.
  * Other additional copyright holders may be indicated within.
  *
  * The entirety of this work is licensed under the Apache License,
@@ -1090,7 +1090,7 @@ module ChapelArray {
 
     pragma "no doc"
     proc stridable param where isSparseDom(this) {
-      compilerError("sparse domains do not currently support .stridable");
+      return _value.parentDom.stridable;
     }
 
     pragma "no doc"
@@ -1648,6 +1648,11 @@ module ChapelArray {
        for i in 1..rank do
          offTup(i) = off;
        return translate(offTup);
+     }
+
+     /* Return true if the domain has no indices */
+     proc isEmpty(): bool {
+       return this.size == 0;
      }
 
     //

@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2017 Cray Inc.
+ * Copyright 2004-2018 Cray Inc.
  * Other additional copyright holders may be indicated within.
  *
  * The entirety of this work is licensed under the Apache License,
@@ -662,7 +662,7 @@ int AggregateType::getFieldPosition(const char* name, bool fatal) {
 
   current_p->set_add(this);
 
-  int fieldPos = 0;
+  int fieldPos = 1;
 
   while (current_p->n != 0) {
     forv_Vec(Type, t, *current_p) {
